@@ -1,7 +1,8 @@
 import { BadGatewayException, Injectable } from '@nestjs/common';
+import { HttpService } from '@nestjs/axios';
 import { IBhutGateway } from '../../aplication/ports/IBhutGateway';
 import { CarDto } from '../../presentantion/dtos/cars/car.dto';
-import { HttpService } from '@nestjs/axios';
+import { CreateCarDto } from '../../presentantion/dtos/cars/create-car.dto';
 
 @Injectable()
 export class BhutGateway extends IBhutGateway {
@@ -36,6 +37,25 @@ export class BhutGateway extends IBhutGateway {
             );
           })
         : [];
+    } catch (error) {
+      throw new BadGatewayException('Problem with the bhut API');
+    }
+  }
+
+  async createCar(data: CreateCarDto): Promise<CarDto> {
+    try {
+      const response = await this.httpService
+        .post(`${this.bhutUrl}/cars`, data, {
+          headers: BhutGateway.setHeader(),
+        })
+        .toPromise();
+      return new CarDto(
+        response.data._id,
+        response.data.title,
+        response.data.brand,
+        response.data.price,
+        response.data.age,
+      );
     } catch (error) {
       throw new BadGatewayException('Problem with the bhut API');
     }
