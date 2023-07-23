@@ -24,7 +24,7 @@ export class BaseCarDto {
   @ApiProperty({
     type: String,
     description: 'String Car Price',
-    example: true,
+    example: '8200',
     required: true,
   })
   @IsNumber()

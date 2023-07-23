@@ -5,4 +5,8 @@ export class CreateCarDto extends BaseCarDto {
   readonly brand: string;
   readonly price: string;
   readonly age: number;
+
+  constructor(title: string, brand: string, price: string, age: number) {
+    super(title, brand, price, age);
+  }
 }
