@@ -4,7 +4,7 @@ import { IBhutGateway } from '../../src/aplication/ports/IBhutGateway';
 import { HttpModule, HttpService } from '@nestjs/axios';
 import MockBhutGateway from './__mocks__/MockBhutGateway';
 import MockHttpService from './__mocks__/MockHttpService';
-import MockCar from './__mocks__/MockCars';
+import MockCars from './__mocks__/MockCars';
 import { LogsService } from '../../src/aplication/services/logs.service';
 import { getModelToken } from '@nestjs/mongoose';
 import MockRepository from './__mocks__/MockRepository';
@@ -45,7 +45,7 @@ describe('CarsService', () => {
 
   describe('When List Cars', () => {
     it('should list cars', async () => {
-      const carDto = MockCar.mockCarDto();
+      const carDto = MockCars.mockCarDto();
       const responseGateway = MockBhutGateway.mockGetBhutGatewayReturn();
       mockHttpService.get.mockResolvedValue(responseGateway);
       const cars = await service.listCars();
@@ -56,8 +56,8 @@ describe('CarsService', () => {
 
   describe('When Create Car', () => {
     it('should be create a car', async () => {
-      const createDto = MockCar.mockCreateCarDto();
-      const carDto = MockCar.mockCarDto();
+      const createDto = MockCars.mockCreateCarDto();
+      const carDto = MockCars.mockCarDto();
       const responseGateway = MockBhutGateway.mockPostBhutGatewayReturn();
       mockHttpService.post.mockResolvedValue(responseGateway);
       const car = await service.create(createDto);
