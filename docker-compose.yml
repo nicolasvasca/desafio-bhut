@@ -1,0 +1,25 @@
+version: '3.7'
+
+services: 
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+
+  api:
+    build: .
+    ports: 
+    - "3000:3000"
+    volumes: 
+      - .:/app
+      - /app/node_modules
+    environment:
+      - MONGODB_URI=mongodb://mongo/bhut
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+       
+      
+

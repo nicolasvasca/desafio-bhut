@@ -12,7 +12,11 @@ import { WebhooksModule } from './infra/ioc/webhooks.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    MongooseModule.forRoot('mongodb://localhost/bhut'),
+    MongooseModule.forRoot(
+      process.env.MONGODB_URI
+        ? process.env.MONGODB_URI
+        : 'mongodb://localhost/bhut',
+    ),
     CarsModule,
     LogsModule,
     WebhooksModule,
