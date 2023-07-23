@@ -8,12 +8,16 @@ import MockCars from './__mocks__/MockCars';
 import { LogsService } from '../../src/aplication/services/logs.service';
 import { getModelToken } from '@nestjs/mongoose';
 import MockRepository from './__mocks__/MockRepository';
+import { WebhooksService } from '../../src/aplication/services/webhooks.service';
+import { IWebHookGateway } from '../../src/aplication/ports/IWebHookGateway';
+import MockWebHookGateway from './__mocks__/MockWebHook';
 
 describe('CarsService', () => {
   let service: CarsService;
   const mockBhutGateway = MockBhutGateway.mockBhutGateway();
   const mockHttpService = MockHttpService.mockHttpService();
   const mockLogRepository = MockRepository.mockRepository();
+  const mockWebHookGateway = MockWebHookGateway.mockWebHookGateway();
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -21,9 +25,14 @@ describe('CarsService', () => {
       providers: [
         CarsService,
         LogsService,
+        WebhooksService,
         {
           provide: IBhutGateway,
           useValue: mockBhutGateway,
+        },
+        {
+          provide: IWebHookGateway,
+          useValue: mockWebHookGateway,
         },
         {
           provide: HttpService,
