@@ -26,6 +26,16 @@ describe('LogsService', () => {
     expect(service).toBeDefined();
   });
 
+  // describe('When search All Logs', () => {
+  //   it('should be list all logs', async () => {
+  //     const log = MockLogs.mockLog();
+  //     mockLogRepository.find.mockReturnValue([log, log]);
+  //     const logs = await service.find();
+  //     expect(logs).toHaveLength(2);
+  //     expect(mockLogRepository.find).toHaveBeenCalledTimes(1);
+  //   });
+  // });
+
   describe('When create log', () => {
     it('should be create a planet', async () => {
       const log = MockLogs.mockLog();

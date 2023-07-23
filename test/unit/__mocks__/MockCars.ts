@@ -1,5 +1,5 @@
-import { CreateCarDto } from '../../../src/presentantion/dtos/cars/create-car.dto';
-import { CarDto } from '../../../src/presentantion/dtos/cars/car.dto';
+import { CreateCarDto } from '../../../src/presentantion/dtos/car/create-car.dto';
+import { CarDto } from '../../../src/presentantion/dtos/car/car.dto';
 
 export default class MockCars {
   static mockCarDto(): CarDto {

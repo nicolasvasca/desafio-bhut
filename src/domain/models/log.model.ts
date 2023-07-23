@@ -9,7 +9,7 @@ export class Log {
   car_id: string;
 
   @Prop({ type: Date, default: Date.now })
-  createdAt: Date;
+  created_at: Date;
 }
 
 export const LogSchema = SchemaFactory.createForClass(Log);

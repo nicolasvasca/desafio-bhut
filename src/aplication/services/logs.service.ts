@@ -11,4 +11,9 @@ export class LogsService {
     const createdLog = this.logModel.create({ car_id: carId });
     return createdLog;
   }
+
+  async find(): Promise<Log[]> {
+    const logs = await this.logModel.find().exec();
+    return logs;
+  }
 }
