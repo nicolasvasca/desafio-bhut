@@ -7,7 +7,6 @@ export default class MockRepository {
       update: jest.fn(),
       create: jest.fn(),
       remove: jest.fn(),
-      exec: jest.fn(),
     };
   }
 }
