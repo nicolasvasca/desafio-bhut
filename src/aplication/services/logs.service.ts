@@ -8,7 +8,7 @@ export class LogsService {
   constructor(@InjectModel(Log.name) private logModel: Model<Log>) {}
 
   async create(carId: string): Promise<Log> {
-    const createdLog = new this.logModel({ car_id: carId });
-    return createdLog.save();
+    const createdLog = this.logModel.create({ car_id: carId });
+    return createdLog;
   }
 }

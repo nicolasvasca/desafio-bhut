@@ -1,14 +1,16 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Expose } from 'class-transformer';
-import { IsNumber, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class BaseCarDto {
   @ApiProperty({
     type: String,
     description: 'Car Title',
     example: 'Prisma',
+    required: true,
   })
   @IsString()
+  @IsNotEmpty({ message: 'Title is required' })
   @Expose()
   readonly title: string;
 
@@ -16,8 +18,10 @@ export class BaseCarDto {
     type: String,
     description: 'Car Brand',
     example: 'VW',
+    required: true,
   })
   @IsString()
+  @IsNotEmpty({ message: 'Brand is required' })
   @Expose()
   readonly brand: string;
 
@@ -28,6 +32,7 @@ export class BaseCarDto {
     required: true,
   })
   @IsNumber()
+  @IsNotEmpty({ message: 'Price is required' })
   @Expose()
   readonly price: string;
 
@@ -35,8 +40,10 @@ export class BaseCarDto {
     type: Number,
     description: 'Car Age',
     example: 2020,
+    required: true,
   })
   @IsNumber()
+  @IsNotEmpty({ message: 'Age is required' })
   @Expose()
   readonly age: number;
 
