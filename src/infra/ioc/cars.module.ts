@@ -4,9 +4,10 @@ import { CarsService } from '../../aplication/services/cars.service';
 import { CarsController } from '../../presentantion/controllers/cars.controller';
 import { BhutGateway } from '../gateways/BhutGateway';
 import { IBhutGateway } from 'src/aplication/ports/IBhutGateway';
+import { LogsModule } from './logs.module';
 
 @Module({
-  imports: [HttpModule],
+  imports: [HttpModule, LogsModule],
   providers: [
     CarsService,
     {
