@@ -16,6 +16,15 @@ $ BHUT_URL=http://api-test.bhut.com.br:3000/api
 $ WEBHOOK_URL=https://webhook.site/992bbb5c-87bf-47f1-8592-81c5e9bb367d
 ```
 
+## WEB HOOK
+Acesso ao site usado no sistema: [https://webhook.site/#!/992bbb5c-87bf-47f1-8592-81c5e9bb367d/f0fc6f1c-7480-4284-ba4c-eb584d8ee3c4/1](https://webhook.site/#!/992bbb5c-87bf-47f1-8592-81c5e9bb367d/f0fc6f1c-7480-4284-ba4c-eb584d8ee3c4/1)
+
+Caso não funcione com essas chaves, acesse o site oficial do Web Hook: [https://webhook.site/](https://webhook.site/)
+
+<img src="docs/images/WEBHOOK.png" alt="Unique Url Web Hook">
+
+Edite o valor do parâmetro WEBHOOK_URL no arquivo .env com a URL única fornecida pelo site.
+
 ## Executando a API
 
 ## Executando com Docker
