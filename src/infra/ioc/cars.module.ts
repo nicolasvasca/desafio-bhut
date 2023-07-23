@@ -15,5 +15,6 @@ import { IBhutGateway } from 'src/aplication/ports/IBhutGateway';
     },
   ],
   controllers: [CarsController],
+  exports: [CarsService],
 })
 export class CarsModule {}
