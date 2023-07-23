@@ -1,5 +1,5 @@
-import { CreateCarDto } from '../../presentantion/dtos/cars/create-car.dto';
-import { CarDto } from '../../presentantion/dtos/cars/car.dto';
+import { CreateCarDto } from '../../presentantion/dtos/car/create-car.dto';
+import { CarDto } from '../../presentantion/dtos/car/car.dto';
 
 export abstract class IBhutGateway {
   abstract listCars(): Promise<CarDto[]>;

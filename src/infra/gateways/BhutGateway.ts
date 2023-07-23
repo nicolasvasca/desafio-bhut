@@ -1,8 +1,8 @@
 import { BadGatewayException, Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { IBhutGateway } from '../../aplication/ports/IBhutGateway';
-import { CarDto } from '../../presentantion/dtos/cars/car.dto';
-import { CreateCarDto } from '../../presentantion/dtos/cars/create-car.dto';
+import { CarDto } from '../../presentantion/dtos/car/car.dto';
+import { CreateCarDto } from '../../presentantion/dtos/car/create-car.dto';
 
 @Injectable()
 export class BhutGateway extends IBhutGateway {
