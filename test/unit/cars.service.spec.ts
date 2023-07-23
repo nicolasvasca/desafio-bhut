@@ -38,10 +38,22 @@ describe('CarsService', () => {
     it('should list cars', async () => {
       const carDto = MockCar.mockCarDto();
       const responseGateway = MockBhutGateway.mockGetBhutGatewayReturn();
-      mockHttpService.get.mockResolvedValue([responseGateway]);
+      mockHttpService.get.mockResolvedValue(responseGateway);
       const cars = await service.listCars();
       expect(cars).toEqual([carDto]);
       expect(mockBhutGateway.listCars).toBeCalledTimes(1);
+    });
+  });
+
+  describe('When Create Car', () => {
+    it('should be create a car', async () => {
+      const createDto = MockCar.mockCreateCarDto();
+      const carDto = MockCar.mockCarDto();
+      const responseGateway = MockBhutGateway.mockPostBhutGatewayReturn();
+      mockHttpService.post.mockResolvedValue(responseGateway);
+      const car = await service.create(createDto);
+      expect(car).toEqual(carDto);
+      expect(mockBhutGateway.createCar).toBeCalledTimes(1);
     });
   });
 });
