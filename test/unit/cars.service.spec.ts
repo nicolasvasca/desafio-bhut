@@ -5,17 +5,22 @@ import { HttpModule, HttpService } from '@nestjs/axios';
 import MockBhutGateway from './__mocks__/MockBhutGateway';
 import MockHttpService from './__mocks__/MockHttpService';
 import MockCar from './__mocks__/MockCars';
+import { LogsService } from '../../src/aplication/services/logs.service';
+import { getModelToken } from '@nestjs/mongoose';
+import MockRepository from './__mocks__/MockRepository';
 
 describe('CarsService', () => {
   let service: CarsService;
   const mockBhutGateway = MockBhutGateway.mockBhutGateway();
   const mockHttpService = MockHttpService.mockHttpService();
+  const mockLogRepository = MockRepository.mockRepository();
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [HttpModule],
       providers: [
         CarsService,
+        LogsService,
         {
           provide: IBhutGateway,
           useValue: mockBhutGateway,
@@ -23,6 +28,10 @@ describe('CarsService', () => {
         {
           provide: HttpService,
           useValue: mockHttpService,
+        },
+        {
+          provide: getModelToken('Log'),
+          useValue: mockLogRepository,
         },
       ],
     }).compile();
@@ -54,6 +63,7 @@ describe('CarsService', () => {
       const car = await service.create(createDto);
       expect(car).toEqual(carDto);
       expect(mockBhutGateway.createCar).toBeCalledTimes(1);
+      expect(mockLogRepository.create).toBeCalledTimes(1);
     });
   });
 });
