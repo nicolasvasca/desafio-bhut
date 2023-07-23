@@ -8,7 +8,7 @@ export class WebHookGateway extends IWebHookGateway {
   private readonly weebHookUrl: string;
   constructor(private readonly httpService: HttpService) {
     super();
-    this.weebHookUrl = process.env.BHUT_URL;
+    this.weebHookUrl = process.env.WEBHOOK_URL;
   }
 
   async sendNotification(carDto: CarDto): Promise<void> {

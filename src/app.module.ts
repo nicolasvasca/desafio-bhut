@@ -5,6 +5,7 @@ import { CarsModule } from './infra/ioc/cars.module';
 import { LogsModule } from './infra/ioc/logs.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
+import { WebhooksModule } from './infra/ioc/webhooks.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { ConfigModule } from '@nestjs/config';
     MongooseModule.forRoot('mongodb://localhost/bhut'),
     CarsModule,
     LogsModule,
+    WebhooksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
